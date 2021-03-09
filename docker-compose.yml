@@ -1,0 +1,94 @@
+version: "3.7"
+
+services:
+
+  flask0:
+    build: ./flask
+    container_name: flask0
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8080"
+    command:
+      - uwsgi 
+      - uwsgi0.ini
+
+  flask1:
+    build: ./flask
+    container_name: flask1
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8081"
+    command:
+      - uwsgi 
+      - uwsgi1.ini
+
+  flask2:
+    build: ./flask
+    container_name: flask2
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8082"
+    command:
+      - uwsgi 
+      - uwsgi2.ini
+
+  flask3:
+    build: ./flask
+    container_name: flask3
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8083"
+    command:
+      - uwsgi 
+      - uwsgi3.ini
+
+  flask4:
+    build: ./flask
+    container_name: flask4
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8084"
+    command:
+      - uwsgi 
+      - uwsgi4.ini
+
+  flask5:
+    build: ./flask
+    container_name: flask5
+    restart: always
+    runtime: nvidia
+    environment:
+      - APP_NAME=MyFlaskApp
+      - NVIDIA_VISIBLE_DEVICES=all
+    expose:
+      - "8085"
+    command:
+      - uwsgi 
+      - uwsgi5.ini
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "8000:80"
