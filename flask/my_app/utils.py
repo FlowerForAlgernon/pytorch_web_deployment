@@ -1,3 +1,7 @@
+"""
+该文件用于将模型加载，对请求中的图片进行预处理以及预测
+"""
+
 import io
 from PIL import Image
 import torch
