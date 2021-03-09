@@ -22,5 +22,5 @@ print(resp.text)
 
 + 使用 apache2-utils 对该服务进行压力测试。其中 “-c” 表示并发数， “-n” 表示请求总数
 ```shell
-ab -c 100 -n 10000 -p test.jpg -T "application/x-www-formurlencoded" http://127.0.0.1:8000/predict
+ab -c 10 -n 100 -p test.jpg -T "application/x-www-formurlencoded" http://127.0.0.1:8000/predict
 ```
