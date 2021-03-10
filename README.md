@@ -4,7 +4,7 @@ PyTorch 模型的部署，常见有两种方式。第一种是利用 TorchScript
 第二种部署方式是进行 web 部署，将 PyTorch 模型作为一种 Python 应用来提供服务，并采用 REST API 的形式进行接口调用。整体上可采用 Flask + uwsgi + Nginx 的方式来部署 Pytorch 模型，并使用 Docker 对其进行包装，使用 Docker Compose 来对服务进行编排，达到开箱即用的效果。
 
 # 功能
-该项目部署的 Pytorch 模型是用来进行猫狗识别的简单 CNN 网络。具体过程如下，对于客户端发送到主机 8000 端口的 HTTP 请求，使用 Nginx 容器将主机的 8000 端口映射到容器内的 80 端口；然后 Nginx 容器对请求进行负载均衡后发送到接口为 8080、 8081、 8082 等多个不同的 Flask 容器中； Flask 容器将请求的内容输入 Pytorch 模型中得到预测结果，并将结果返回到客户端。另外，可在 model.py 文件中更换需要的网络模型，使用新的网络模型参数 model.pth，或在 utils.py 文件中修改图片预处理方式，网络加载方式等。
+该项目部署的 Pytorch 模型是用来进行猫狗识别的简单 CNN 网络，由客户端将图片发送至服务器端，服务器端在作出预测后将预测结果返回给客户。具体过程如下，对于客户端发送到主机 8000 端口的 HTTP 请求，使用 Nginx 容器将主机的 8000 端口映射到容器内的 80 端口；然后 Nginx 容器对请求进行负载均衡后发送到接口为 8080、 8081、 8082 等多个不同的 Flask 容器中； Flask 容器将请求的内容输入 Pytorch 模型中得到预测结果，并将结果返回到客户端。另外，可在 model.py 文件中更换需要的网络模型，使用新的网络模型参数 model.pth，或在 utils.py 文件中修改图片预处理方式，网络加载方式等。
 
 ![flame](https://github.com/FlowerForAlgernon/pytorch_web_deployment/blob/main/pic/flame.png)
 
