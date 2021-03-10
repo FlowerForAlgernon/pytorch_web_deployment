@@ -36,4 +36,4 @@ def get_prediction(image_bytes):
     image = image.unsqueeze(0).to(device)
     out = model(image)
     pred = torch.argmax(out, dim=1)
-    return "cat" if int(pred) == 0 else "dog"
+    return {"result": "cat" if int(pred) == 0 else "dog"}
