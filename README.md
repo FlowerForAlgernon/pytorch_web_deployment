@@ -34,5 +34,5 @@ print(resp.text)
 ab -c 10 -n 100 -p test.jpg -T "application/x-www-formurlencoded" http://127.0.0.1:8000/predict
 ```
 
-最终ab测试的结果（因为模型结构简单，所以在测压时将模型加载在CPU上）：
+最终ab测试的结果（因为模型结构简单，所以在测压时将模型改为加载在CPU上）：
 ![res](https://github.com/FlowerForAlgernon/pytorch_web_deployment/blob/main/pic/res.png)
